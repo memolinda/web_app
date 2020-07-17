@@ -5,9 +5,13 @@ from kivy.uix.screenmanager import ScreenManager, Screen
 Builder.load_file("design.kv")
 
 class LoginScreen(Screen): #class with the same name as the rules in the .kv file
-    pass
+    def sign_up(self):
+        self.manager.current ="sign_up_screen" #switch from the login screen to the sig up screen
 
 class RootWidget(ScreenManager):
+    pass
+
+class SignUpScreen(Screen): #any action in the sign up screen it is connected to this class
     pass
 
 class MainApp(App):
