@@ -25,11 +25,14 @@
         Label:
             text:"Sign up for a spice trip!!"
         TextInput:
+            id: username
             hint_text: "Username"
         TextInput:
+            id: password
             hint_text: "Password"
         Button:
             text:"Sign Up"
+            on_press: root.add_user(root.ids.username.text, root. ids.password.text) #get back the text that the user entered in the text boxes
 
 <RootWidget>: #Rule: invisible widget that take records of all the screen of the app
     LoginScreen: #name for the screen
