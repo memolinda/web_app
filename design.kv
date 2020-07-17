@@ -17,7 +17,22 @@
                 text:"Forgot Password?"
             Button:
                 text:"Sign Up"
+                on_press: root.sign_up() #root: refer to the class of the rule widgetes where it is placed. Any time the sign up button is pressed it calls the sign_up method in the .py file
+
+<SignUpScreen>: #create the sign up page
+    GridLayout:
+        cols: 1
+        Label:
+            text:"Sign up for a spice trip!!"
+        TextInput:
+            hint_text: "Username"
+        TextInput:
+            hint_text: "Password"
+        Button:
+            text:"Sign Up"
 
 <RootWidget>: #Rule: invisible widget that take records of all the screen of the app
     LoginScreen: #name for the screen
         name: "login_screen"
+    SignUpScreen:
+        name: "sign_up_screen"
