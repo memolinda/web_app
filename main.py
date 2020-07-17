@@ -22,7 +22,9 @@ class SignUpScreen(Screen): #any action in the sign up screen it is connected to
 
         with open("users.json", 'w') as file:
             json.dump(users, file)
-            
+        self.manager.current ="sign_up_screen_success"
+class SignUpScreenSuccess(Screen):
+    pass 
 class MainApp(App):
     def build(self):
         return RootWidget()
