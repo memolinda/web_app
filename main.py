@@ -12,7 +12,8 @@ class RootWidget(ScreenManager):
     pass
 
 class SignUpScreen(Screen): #any action in the sign up screen it is connected to this class
-    pass
+    def add_user(self, uname, pword):
+        print(uname, pword)
 
 class MainApp(App):
     def build(self):
