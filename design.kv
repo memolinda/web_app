@@ -34,8 +34,17 @@
             text:"Sign Up"
             on_press: root.add_user(root.ids.username.text, root. ids.password.text) #get back the text that the user entered in the text boxes
 
+<SignUpScreenSuccess>:
+    GridLayout:
+        cols:1
+        Label:
+            text:"Sign up successfull!"
+        Button:
+            text: "Login page"
 <RootWidget>: #Rule: invisible widget that take records of all the screen of the app
     LoginScreen: #name for the screen
         name: "login_screen"
     SignUpScreen:
         name: "sign_up_screen"
+    SignUpScreenSuccess:
+        name:"sign_up_screen_success"
