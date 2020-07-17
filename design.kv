@@ -41,6 +41,24 @@
             text:"Sign up successfull!"
         Button:
             text: "Login page"
+            on_press: root.login_back()
+
+<LoginScreenSuccess>:
+    GridLayout:
+        cols:1
+        Button:
+            text: "Logout"
+            on_press: root.log_out()
+        Label:
+            text:"How are you?"
+        TextInput:
+            hint_text:"Things to try: happy, sad, unloved...."
+        Button:
+            text:"Go head!"
+        Label:
+            text:""
+
+
 <RootWidget>: #Rule: invisible widget that take records of all the screen of the app
     LoginScreen: #name for the screen
         name: "login_screen"
@@ -48,3 +66,5 @@
         name: "sign_up_screen"
     SignUpScreenSuccess:
         name:"sign_up_screen_success"
+    LoginScreenSuccess:
+        name: "loging_screen_success"
