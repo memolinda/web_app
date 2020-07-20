@@ -6,11 +6,17 @@
             Label: #Create a label for the page
                 text: "User Login" #text for the label
             TextInput: #Create a input box for the user
+                id: username
                 hint_text:"Username" #text in the box
             TextInput:
+                id: password
                 hint_text:"Password"
             Button: #create a button
                 text:"Login" #text on the button
+                on_press: root.login(root.ids.username.text, root.ids.password.text)
+            Label:
+                id: login_wrong
+                text:""
         GridLayout: #second half of the app as a 2 columns layot
             cols:2
             Button:
