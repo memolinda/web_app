@@ -58,10 +58,13 @@
         Label:
             text:"How are you?"
         TextInput:
+            id: feeling
             hint_text:"Things to try: happy, sad, unloved...."
         Button:
             text:"Go head!"
+            on_press: root.get_quote(root.ids.feeling.text)
         Label:
+            id: quote
             text:""
 
 
