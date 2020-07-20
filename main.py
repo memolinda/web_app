@@ -74,7 +74,7 @@ class LoginScreenSuccess(Screen):
                 quotes = file.readlines()
             self.ids.quote.text = random.choice(quotes)
         else:
-            self.ids.quote.text = "Try another feeling!"
+            self.ids.quote.text = "Sorry, feeling not supportet yet!"
 
 class MainApp(App):
     def build(self):

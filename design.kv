@@ -7,14 +7,16 @@
             spacing: 20, 20 #space between widgetes
             Label: #Create a label for the page
                 text: "User Login" #text for the label
-                font_size: '20sp'
+                font_size: '20sp' #font of 20 pixel (but need to pass a string = sp)
             TextInput: #Create a input box for the user
                 id: username
                 hint_text:"Username" #text in the box
+                size_hint: 0.3, 0.5
             TextInput:
                 id: password
                 hint_text:"Password"
                 password:True
+                size_hint: 0.3, 0.5
             RelativeLayout: #to create a button with a size not depedent to the GridLayout
                 Button: #create a button
                     text:"Login" #text on the button
@@ -45,62 +47,91 @@
 <SignUpScreen>: #create the sign up page
     GridLayout:
         cols: 1
+        padding: 20, 20
+        spacing: 20, 30
         Label:
             text:"Sign up!!"
+            font_size: '20sp'
         TextInput:
             id: username
             hint_text: "Username"
+            size_hint: 0.3, 0.3
         TextInput:
             id: password
             hint_text: "Password"
+            size_hint: 0.3, 0.3
         Button:
             text:"Sign Up"
             on_press: root.add_user(root.ids.username.text, root.ids.password.text) #get back the text that the user entered in the text boxes
+            size_hint: 0.3, 0.4
 
 <SignUpScreenSuccess>:
     GridLayout:
         cols:1
+        padding: 20, 0
+        spacing: 20, 0
         Label:
             text:"Sign up successfull!"
-        Button:
-            text: "Login page"
-            on_press: root.login_back()
+            font_size: '20sp'
+        RelativeLayout:
+            Button:
+                text: "Login page"
+                on_press: root.login_back()
+                size_hint: 0.4, 0.2
+                pos_hint:{'center_x':0.5, 'center_y':0.6}
 
 <ForgottenPassword>:
     GridLayout:
         cols:1
+        padding: 20, 0
+        spacing: 20, 0
         Label:
             text: "Insert Username:"
+            font_size: '20sp'
         TextInput:
             id:username_password
             hint_text: "Username"
-        Button:
-            text:"Show my password:"
-            on_press: root.check_password(root.ids.username_password.text)
+            size_hint: 0.3, 0.5
+        RelativeLayout:
+            Button:
+                text:"Password:"
+                on_press: root.check_password(root.ids.username_password.text)
+                size_hint: 0.3, 0.5
+                pos_hint:{'center_x':0.5, 'center_y':0.6}
         Label:
             id:show_password
             text:""
-        Button:
-            text: "Login page"
-            on_press: root.forgot_password_back()
+        RelativeLayout:
+            Button:
+                text: "Login page"
+                on_press: root.forgot_password_back()
+                size_hint: 0.3, 0.5
+                pos_hint:{'center_x':0.5, 'center_y':0.6}
 
 <LoginScreenSuccess>:
     GridLayout:
         cols:1
+        padding: 20, 20
+        spacing: 20, 20
         Button:
             text: "Logout"
             on_press: root.log_out()
         Label:
-            text:"How are you?"
+            text:"How do you feel?"
+            font_size: '20pt'
         TextInput:
             id: feeling
             hint_text:"Things to try: happy, sad, unloved...."
-        Button:
-            text:"Go head!"
-            on_press: root.get_quote(root.ids.feeling.text)
+        RelativeLayout:
+            Button:
+                text:"Go head!"
+                on_press: root.get_quote(root.ids.feeling.text)
+                size_hint: 0.3, 0.5
+                pos_hint:{'center_x':0.5, 'center_y':0.6}
         Label:
             id: quote
             text:""
+
 
 
 <RootWidget>: #Rule: invisible widget that take records of all the screen of the app
