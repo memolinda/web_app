@@ -21,6 +21,7 @@
             cols:2
             Button:
                 text:"Forgot Password?"
+                on_press: root.forget_password()
             Button:
                 text:"Sign Up"
                 on_press: root.sign_up() #root: refer to the class of the rule widgetes where it is placed. Any time the sign up button is pressed it calls the sign_up method in the .py file
@@ -29,7 +30,7 @@
     GridLayout:
         cols: 1
         Label:
-            text:"Sign up for a spice trip!!"
+            text:"Sign up!!"
         TextInput:
             id: username
             hint_text: "Username"
@@ -38,7 +39,7 @@
             hint_text: "Password"
         Button:
             text:"Sign Up"
-            on_press: root.add_user(root.ids.username.text, root. ids.password.text) #get back the text that the user entered in the text boxes
+            on_press: root.add_user(root.ids.username.text, root.ids.password.text) #get back the text that the user entered in the text boxes
 
 <SignUpScreenSuccess>:
     GridLayout:
@@ -48,6 +49,24 @@
         Button:
             text: "Login page"
             on_press: root.login_back()
+
+<ForgottenPassword>:
+    GridLayout:
+        cols:1
+        Label:
+            text: "Insert Username:"
+        TextInput:
+            id:username_password
+            hint_text: "Username"
+        Button:
+            text:"Show my password:"
+            on_press: root.check_password(root.ids.username_password.text)
+        Label:
+            id:show_password
+            text:""
+        Button:
+            text: "Login page"
+            on_press: root.forgot_password_back()
 
 <LoginScreenSuccess>:
     GridLayout:
@@ -75,5 +94,7 @@
         name: "sign_up_screen"
     SignUpScreenSuccess:
         name:"sign_up_screen_success"
+    ForgottenPassword:
+        name:"forget_password_screen"
     LoginScreenSuccess:
         name: "loging_screen_success"

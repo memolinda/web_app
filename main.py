@@ -20,6 +20,10 @@ class LoginScreen(Screen): #class with the same name as the rules in the .kv fil
         else:
             self.ids.login_wrong.text="Wrong username or password!"
 
+    def forget_password(self):
+        # self.manager.transition.direction="right"
+        self.manager.current = "forget_password_screen"
+
 
 class RootWidget(ScreenManager):
     pass
@@ -34,6 +38,20 @@ class SignUpScreen(Screen): #any action in the sign up screen it is connected to
         with open("users.json", 'w') as file:
             json.dump(users, file)
         self.manager.current ="sign_up_screen_success"
+
+class ForgottenPassword(Screen):
+    def check_password(self, user):
+        # self.manager.transition.direction="left"
+        with open("users.json") as file:
+            users=json.load(file)
+        if user in users:
+            passw = users[user]['password']
+            self.ids.show_password.text=passw
+        else:
+            self.ids.show_password.text="Username invalid"
+    def forgot_password_back(self):
+        self.manager.transition.direction="right"
+        self.manager.current="login_screen"
 
 
 class SignUpScreenSuccess(Screen):
