@@ -111,14 +111,14 @@
 <LoginScreenSuccess>:
     GridLayout:
         cols:1
-        padding: 30, 30
-        spacing: 30, 30
+        padding: 30, 40
+        spacing: 30, 40
         RelativeLayout:
             ImageButton:
                 source:'logout_hover.png' if self.hovered else 'logout_nothover.png'
                 on_press: root.log_out()
                 size_hint: 0.35, 0.35
-                pos_hint: {'center_x': 0.93, 'center_y': 0.8}
+                pos_hint: {'center_x': 0.9, 'center_y': 0.7}
         Label:
             text:"How do you feel?"
             font_size: '20pt'
@@ -131,10 +131,13 @@
                 on_press: root.get_quote(root.ids.feeling.text)
                 size_hint: 0.3, 0.5
                 pos_hint:{'center_x':0.5, 'center_y':0.6}
-        Label:
-            id: quote
-            text:""
-
+        ScrollView:
+            Label:
+                id: quote
+                text:""
+                text_size: self.width, None #resize the text with the width of the widget, the height is higher than the widget
+                size_hint_y: None #height is not as the Label
+                height: self.texture_size[1] #the label height is dinamic with the text. self.texture_size[0] will addapt the width with the text size
 
 
 <RootWidget>: #Rule: invisible widget that take records of all the screen of the app
