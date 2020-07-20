@@ -10,6 +10,15 @@ class LoginScreen(Screen): #class with the same name as the rules in the .kv fil
     def sign_up(self):
         self.manager.current ="sign_up_screen" #switch from the login screen to the sig up screen
 
+    def login(self, uname,pword):
+        with open("users.json") as file:
+            users = json.load(file)
+        if uname in users and users[uname]['password'] == pword:
+            self.manager.current = "loging_screen_success"
+        else:
+            self.ids.login_wrong.text="Wrong username or password!"
+
+
 class RootWidget(ScreenManager):
     pass
 
